@@ -1,3 +1,26 @@
+Metadata-Version: 2.1
+Name: roboflex.visualization
+Version: 0.1.0
+Summary: Roboflex Visualization Library
+Home-page: https://github.com/flexrobotics/roboflex_visualization
+Author: Colin Prepscius
+Author-email: colinprepscius@gmail.com
+License: MIT
+Keywords: SDL2,visualization,robotics,middleware,flexbuffers,python,c++,c++20
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: Framework :: Robot Framework
+Classifier: Framework :: Robot Framework :: Library
+Classifier: Framework :: Robot Framework :: Tool
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # roboflex.visualization
 
 A thin wrapper of various display nodes over SDL2. For now just supplies
@@ -82,4 +105,6 @@ There is are two: **RGBImageTV** an **DepthTV**
 
     # must be started!
     depth_tv.start()
+
+
 

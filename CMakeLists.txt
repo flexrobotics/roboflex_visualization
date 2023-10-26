@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 
-project(roboflex_visualization VERSION 0.1.0 DESCRIPTION "roboflex visualization tools using simple directmedia layer")
+project(roboflex_visualization VERSION 0.1.1 DESCRIPTION "roboflex visualization tools using simple directmedia layer")
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 20)

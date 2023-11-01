@@ -24,8 +24,6 @@ set(BUILD_ROBOFLEX_PYTHON_EXT OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(roboflex_core)
 
 
-
-
 # -------------------- 
 # Define the library
 

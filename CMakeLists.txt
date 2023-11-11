@@ -62,9 +62,16 @@ target_link_libraries(roboflex_visualization PUBLIC
 # -------------------- 
 # Examples
 
-# basic_0 example
+# display_static_cpp example
 add_executable(display_static_cpp examples/display_static_cpp.cpp)
 target_link_libraries(display_static_cpp PRIVATE 
+    roboflex_core 
+    roboflex_visualization
+)
+
+# display_black_and_white_static_cpp example
+add_executable(display_black_and_white_static_cpp examples/display_black_and_white_static_cpp.cpp)
+target_link_libraries(display_black_and_white_static_cpp PRIVATE 
     roboflex_core 
     roboflex_visualization
 )

@@ -42,6 +42,8 @@ Television::Television(
     this->window = SDL_CreateWindow(this->get_name().c_str(),
         initial_pos.first, initial_pos.second, 
         width, height, SDL_WINDOW_OPENGL);
+
+    rgb_frame.resize({height, width, 3});
 }
 
 Television::~Television()
@@ -162,13 +164,10 @@ void BlackAndWhiteTV::get_rgb_image(
     MessagePtr m, 
     xt::xtensor<uint8_t, 3>& into_rgb_tensor) const
 {
-    // extract the depth frame
     auto bw_frame = extract_tensor<uint8_t, 2>(m, this->image_key, this->debug);
-    auto bw_frame_float = xt::cast<float>(bw_frame);
-    auto gray = xt::cast<uint8_t>(bw_frame_float * 255.0);
-
-    // stack them, put into the rgb tensor
-    into_rgb_tensor = xt::stack(xt::xtuple(gray, gray, gray), 2);
+    xt::view(into_rgb_tensor, xt::all(), xt::all(), 0) = bw_frame;
+    xt::view(into_rgb_tensor, xt::all(), xt::all(), 1) = bw_frame;
+    xt::view(into_rgb_tensor, xt::all(), xt::all(), 2) = bw_frame;
 }
 
 
@@ -213,7 +212,10 @@ void DepthTV::get_rgb_image(
     auto blue = xt::cast<uint8_t>(255.0 - depth_normalized * 255.0);
 
     // stack them, put into the rgb tensor
-    into_rgb_tensor = xt::stack(xt::xtuple(red, green, blue), 2);
+    //into_rgb_tensor = xt::stack(xt::xtuple(red, green, blue), 2);
+    xt::view(into_rgb_tensor, xt::all(), xt::all(), 0) = red;
+    xt::view(into_rgb_tensor, xt::all(), xt::all(), 1) = green;
+    xt::view(into_rgb_tensor, xt::all(), xt::all(), 2) = blue;
 }
 
 

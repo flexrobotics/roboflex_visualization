@@ -14,7 +14,7 @@ using std::string, std::pair, std::mutex, core::MessagePtr;
 class Television: public nodes::FrequencyGenerator {
 public:
     Television(
-        const float frequency_hz,
+        const float frequency_hz = 24.0,
         const size_t width = 640,
         const size_t height = 480,
         const string& image_key = "rgb",
@@ -54,7 +54,7 @@ protected:
 class RGBImageTV: public Television {
 public:
     RGBImageTV(
-        const float frequency_hz,
+        const float frequency_hz = 24.0,
         const size_t width = 640,
         const size_t height = 480,
         const string& image_key = "rgb",
@@ -76,7 +76,7 @@ protected:
 class BlackAndWhiteTV: public Television {
 public:
     BlackAndWhiteTV(
-        const float frequency_hz,
+        const float frequency_hz = 24.0,
         const size_t width = 640,
         const size_t height = 480,
         const string& image_key = "ir1",

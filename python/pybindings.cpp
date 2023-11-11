@@ -23,7 +23,7 @@ PYBIND11_MODULE(roboflex_visualization_ext, m) {
     py::class_<RGBImageTV, Television, std::shared_ptr<RGBImageTV>>(m, "RGBImageTV")
         .def(py::init<const float, size_t, size_t, const std::string&, const pair<int, int>&, const bool, const bool, const std::string&>(),
             "Create a graph node that shows in realtime an rgb data stream.",
-            py::arg("frequency_hz"),
+            py::arg("frequency_hz") = 24.0,
             py::arg("width") = 640,
             py::arg("height") = 480,
             py::arg("image_key") = "rgb",
@@ -36,7 +36,7 @@ PYBIND11_MODULE(roboflex_visualization_ext, m) {
     py::class_<BlackAndWhiteTV, Television, std::shared_ptr<BlackAndWhiteTV>>(m, "BlackAndWhiteTV")
         .def(py::init<const float, size_t, size_t, const std::string&, const pair<int, int>&, const bool, const bool, const std::string&>(),
             "Create a graph node that shows in realtime a grayscale data stream.",
-            py::arg("frequency_hz"),
+            py::arg("frequency_hz") = 24.0,
             py::arg("width") = 640,
             py::arg("height") = 480,
             py::arg("image_key") = "ir1",
@@ -49,7 +49,7 @@ PYBIND11_MODULE(roboflex_visualization_ext, m) {
     py::class_<DepthTV, Television, std::shared_ptr<DepthTV>>(m, "DepthTV")
         .def(py::init<const float, size_t, size_t, const std::string&, const pair<int, int>&, const bool, const bool, const std::string&>(),
             "Create a graph node that shows in realtime a depth data stream.",
-            py::arg("frequency_hz"),
+            py::arg("frequency_hz") = 24.0,
             py::arg("width") = 640,
             py::arg("height") = 480,
             py::arg("image_key") = "depth",

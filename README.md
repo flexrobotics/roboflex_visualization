@@ -31,12 +31,12 @@ one node: RGBImageTV. It can display rgb tensors of the form (H,W,3) uint8.
 
 There are two: 
 
-There is are two: **RGBImageTV** an **DepthTV**
+There is are three: **RGBImageTV**, **BlackAndWhiteTV**, and **DepthTV**
 
 
     # RGBImageTV will redraw rgb images at some
     # frequency (refresh rate). It will look into
-    # an messages it receives - those that contain
+    # all messages it receives - those that contain
     # the key "rgb", mapping to a (3,H,W) tensor
     # will be rendered. Messages get propagated.
 
@@ -59,9 +59,34 @@ There is are two: **RGBImageTV** an **DepthTV**
     rgb_tv.start()
 
 
-    # RGBImageTV will redraw rgb images at some
+    # BlackAndWhiteTV will redraw rgb images at some
     # frequency (refresh rate). It will look into
-    # an messages it receives - those that contain
+    # all messages it receives - those that contain
+    # the key "ir1", mapping to a (H,W) tensor
+    # will be rendered. Messages get propagated.
+
+    black_and_white_tv = rcw.BlackAndWhiteTV(
+
+        # mandatory (refresh rate)
+        frequency_hz: float,
+
+        # optional; defaults are:
+        width = 640,
+        height = 480,
+        image_key = "ir1",
+        initial_pos = (-1, -1),
+        mirror = False,
+        debug = False,
+        name = "BlackAndWhiteTV"
+    )
+
+    # must be started!
+    black_and_white_tv.start()
+
+
+    # DepthTV will redraw depth images at some
+    # frequency (refresh rate). It will look into
+    # all messages it receives - those that contain
     # the key "depth", mapping to a (H,W) tensor
     # will be rendered. Messages get propagated.
 

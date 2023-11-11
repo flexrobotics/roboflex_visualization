@@ -73,6 +73,28 @@ protected:
         xt::xtensor<uint8_t, 3>& into_rgb_tensor) const override;
 };
 
+class BlackAndWhiteTV: public Television {
+public:
+    BlackAndWhiteTV(
+        const float frequency_hz,
+        const size_t width = 640,
+        const size_t height = 480,
+        const string& image_key = "ir1",
+        const pair<int, int>& initial_pos = {-1, -1},
+        const bool mirror = false,
+        const bool debug = false,
+        const string& name = "BlackAndWhiteTV"):
+            Television(frequency_hz, width, height, image_key, initial_pos, mirror, debug, name) {}
+ 
+    string to_string() const override;
+
+protected:
+
+    void get_rgb_image(
+        MessagePtr m, 
+        xt::xtensor<uint8_t, 3>& into_rgb_tensor) const override;
+};
+
 class DepthTV: public Television {
 public:
     DepthTV(

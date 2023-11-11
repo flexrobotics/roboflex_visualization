@@ -146,6 +146,32 @@ void RGBImageTV::get_rgb_image(
 }
 
 
+// -- BlackAndWhiteTV --
+
+std::string BlackAndWhiteTV::to_string() const
+{
+    return std::string("<BlackAndWhiteTV ") +
+        " width=" + std::to_string(width) + 
+        " height=" + std::to_string(height) + 
+        " image_key=\"" + image_key + "\""
+        " mirror=" + std::to_string(mirror) + 
+        " " + FrequencyGenerator::to_string() + ">";
+}
+
+void BlackAndWhiteTV::get_rgb_image(
+    MessagePtr m, 
+    xt::xtensor<uint8_t, 3>& into_rgb_tensor) const
+{
+    // extract the depth frame
+    auto bw_frame = extract_tensor<uint8_t, 2>(m, this->image_key, this->debug);
+    auto bw_frame_float = xt::cast<float>(bw_frame);
+    auto gray = xt::cast<uint8_t>(bw_frame_float * 255.0);
+
+    // stack them, put into the rgb tensor
+    into_rgb_tensor = xt::stack(xt::xtuple(gray, gray, gray), 2);
+}
+
+
 // -- DepthTV --
 
 std::string DepthTV::to_string() const

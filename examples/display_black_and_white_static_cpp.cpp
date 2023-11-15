@@ -13,6 +13,8 @@ int main()
 
     auto random_tensor_creator = nodes::MapFun([](core::MessagePtr m) {
         xt::xtensor<uint8_t, 2> d = xt::random::randint({480, 640, 2}, 0, 255);
+        xt::view(d, xt::range(100, 200), xt::all()) = 0;
+        xt::view(d, xt::all(), xt::range(100, 200)) = 128;
         return core::TensorMessage<uint8_t, 2>::Ptr(d);
     });
 

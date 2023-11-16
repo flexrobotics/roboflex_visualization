@@ -41,12 +41,13 @@ set_property(TARGET roboflex_visualization PROPERTY
 target_include_directories(roboflex_visualization PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> 
     $<INSTALL_INTERFACE:include>
+    ${SDL2_INCLUDE_DIRS}
 )
 
 # Link against the necessary libraries
 target_link_libraries(roboflex_visualization PUBLIC 
     roboflex_core 
-    SDL2
+    ${SDL2_LIBRARIES}
 
     # Unfortunately, we need to link against all these libraries
     # because they are used by roboflex_core, and cmake doesn't

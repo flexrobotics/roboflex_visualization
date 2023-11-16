@@ -23,12 +23,8 @@ int main()
     frequency_generator > random_tensor_creator > visualizer;
 
     frequency_generator.start();
-    visualizer.start();
-
-    sleep_ms(5000);
-    
+    visualizer.run();
     frequency_generator.stop();
-    visualizer.stop();
 
     std::cout << "DONE" << std::endl;
     return 0;

@@ -30,7 +30,6 @@ Television::Television(
         mirror(mirror),
         debug(debug)
 {
-
     // initialize SDL
     int error_code = SDL_Init(SDL_INIT_VIDEO);
     if (error_code < 0) {
@@ -54,6 +53,14 @@ Television::~Television()
 
 void Television::on_trigger(double t)
 {
+    SDL_Event e;
+    while (SDL_PollEvent(&e)){
+        if (e.type == SDL_QUIT) {
+            std::cout << "SDL_QUIT" << std::endl;
+            this->request_stop();
+        }
+    }
+
     draw_from_last_message();
 }
 

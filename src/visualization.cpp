@@ -51,12 +51,11 @@ Television::~Television()
     this->window = nullptr;
 }
 
-void Television::on_trigger(double t)
+void Television::on_trigger(double /*t*/)
 {
     SDL_Event e;
     while (SDL_PollEvent(&e)){
         if (e.type == SDL_QUIT) {
-            std::cout << "SDL_QUIT" << std::endl;
             this->request_stop();
         }
     }

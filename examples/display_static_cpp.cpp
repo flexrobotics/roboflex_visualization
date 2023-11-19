@@ -11,7 +11,7 @@ int main()
 {
     auto frequency_generator = nodes::FrequencyGenerator(30.0);
 
-    auto random_tensor_creator = nodes::MapFun([](core::MessagePtr m) {
+    auto random_tensor_creator = nodes::MapFun([](core::MessagePtr /*m*/) {
         xt::xtensor<uint8_t, 3> d = xt::random::randint({480, 640, 3}, 0, 255);
         return core::TensorMessage<uint8_t, 3>::Ptr(d);
     });

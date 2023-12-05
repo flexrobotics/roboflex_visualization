@@ -48,15 +48,6 @@ target_include_directories(roboflex_visualization PUBLIC
 target_link_libraries(roboflex_visualization PUBLIC 
     roboflex_core 
     ${SDL2_LIBRARIES}
-
-    # Unfortunately, we need to link against all these libraries
-    # because they are used by roboflex_core, and cmake doesn't
-    # seem to be transitivily doing it's thing. Urgh, someone help.
-    flatbuffers_util 
-    xtensor 
-    xsimd 
-    xtl
-    Eigen3::Eigen
 )
 
 

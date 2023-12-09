@@ -1,6 +1,6 @@
 import time
 import numpy as np
-from roboflex.core import FrequencyGenerator, MapFun
+from roboflex import FrequencyGenerator, MapFun
 from roboflex.visualization import RGBImageTV
 
 frequency_generator = FrequencyGenerator(30.0)

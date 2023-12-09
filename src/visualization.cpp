@@ -54,7 +54,7 @@ Television::~Television()
 void Television::on_trigger(double /*t*/)
 {
     SDL_Event e;
-    while (SDL_PollEvent(&e)){
+    while (SDL_PollEvent(&e)) {
         if (e.type == SDL_QUIT) {
             this->request_stop();
         }
@@ -95,7 +95,6 @@ void Television::draw_from_last_message()
     // extract the rgb frame into an xtensor
     get_rgb_image(m, rgb_frame);
     
-
     // extract the 'raw data' pointer
     uint8_t * rgb_data = rgb_frame.data();
 

@@ -27,11 +27,9 @@ one node: RGBImageTV. It can display rgb tensors of the form (H,W,3) uint8.
 
     import roboflex.visualization as rv
 
-## Nodes
+## Nodes 
 
-There are two: 
-
-There is are three: **RGBImageTV**, **BlackAndWhiteTV**, and **DepthTV**
+There are three: **RGBImageTV**, **BlackAndWhiteTV**, and **DepthTV**
 
 
     # RGBImageTV will redraw rgb images at some

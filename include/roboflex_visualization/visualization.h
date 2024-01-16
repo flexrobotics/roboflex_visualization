@@ -79,7 +79,7 @@ public:
         const float frequency_hz = 24.0,
         const size_t width = 640,
         const size_t height = 480,
-        const string& image_key = "ir1",
+        const string& image_key = "image",
         const pair<int, int>& initial_pos = {-1, -1},
         const bool mirror = false,
         const bool debug = false,

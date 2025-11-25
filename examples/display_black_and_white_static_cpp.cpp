@@ -1,5 +1,5 @@
 #include <iostream>
-#include <xtensor/xrandom.hpp>
+#include <xtensor/generators/xrandom.hpp>
 #include "roboflex_core/core_messages/core_messages.h"
 #include "roboflex_core/core_nodes/core_nodes.h"
 #include "roboflex_core/util/utils.h"

@@ -9,3 +9,4 @@ __pycache__
 **/webcam_fastsam/submodules/*
 **.whl
 **.egg-info
+.DS_Store

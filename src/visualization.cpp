@@ -1,4 +1,4 @@
-#include <xtensor/xview.hpp>
+#include <xtensor/views/xview.hpp>
 #include "roboflex_visualization/visualization.h"
 
 namespace roboflex {

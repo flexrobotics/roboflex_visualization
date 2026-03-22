@@ -88,6 +88,7 @@ install(DIRECTORY include/roboflex_visualization
 # --------------------
 # build python bindings
 
-if(BUILD_ROBOFLEX_PYTHON_EXT)
+option(BUILD_VISUALIZATION_PYTHON_EXT "Build the visualization Python extension" ON)
+if(BUILD_VISUALIZATION_PYTHON_EXT)
     add_subdirectory(python)
 endif()
